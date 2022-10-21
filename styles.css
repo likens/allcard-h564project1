@@ -11,6 +11,10 @@
     user-select: none;
 }
 
+img {
+    pointer-events: none;
+}
+
 html {
     font-family: var(--font);
 	font-size: 62.5%;
@@ -36,7 +40,7 @@ body {
     height: 100vh;
 }
 
-button {
+button, input {
     text-shadow: 3px 3px 5px var(--black);
     font-weight: 300;
     line-height: 1;
@@ -55,7 +59,6 @@ button svg {
     background: linear-gradient(300deg,#000, #333, #666);
     background-size: 160% 160%;
     animation: gradient-animation 10s ease infinite;
-    padding: 80px 0 0;
     text-shadow: 3px 3px 5px var(--black);
     font-weight: 300;
 }
@@ -79,7 +82,7 @@ button svg {
 .title {
     font-size: 60px;
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     width: 600px;
@@ -89,12 +92,7 @@ button svg {
     justify-content: center;
     align-items: center;
     font-weight: 500;
-}
-
-.title--games {
-    top: 40px;
-    justify-content: flex-start;
-    text-align: left;
+    z-index: 50;
 }
 
 .menu {
@@ -102,7 +100,6 @@ button svg {
     position: absolute;
     top: 300px;
 }
-
 .menu ul {
     padding: 0;
     margin: 0;
@@ -114,18 +111,20 @@ button svg {
 
 .menu__btn {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     appearance: none;
     background: rgba(255, 255, 255, .25);
     color: var(--white);
     border: 3px solid rgba(255, 255, 255, .75);
     font-family: var(--font);
-    font-size: 45px;
+    font-size: 60px;
     padding: 20px;
     grid-gap: 30px;
     box-shadow: 3px 3px 5px var(--black);
     border-radius: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .menu ul li:nth-child(odd) .menu__btn {
@@ -139,12 +138,12 @@ button svg {
 }
 
 .menu__btn-icon {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
 }
 
 .menu__btn-icon svg {
-    width: 80px;
+    width: 120px;
 }
 
 .menu__btn-icon--cards {
@@ -164,18 +163,20 @@ button svg {
 }
 
 .menu__btn-icon--cards svg:nth-child(2) {
-    left: 20px;
-    top: 5px;
+    left: 15px;
+    top: 20px;
     z-index: 10;
 }
 
-.games {
+.games,
+.wallet {
     width: 100%;
     position: absolute;
     top: 150px;
 }
 
-.games ul {
+.games ul,
+.wallet ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -183,6 +184,7 @@ button svg {
     grid-gap: 40px;
 }
 
+.wallet__btn,
 .games__btn {
     display: flex;
     width: 80%;
@@ -191,7 +193,7 @@ button svg {
     background: rgba(255, 255, 255, .25);
     color: var(--white);
     border: 3px solid rgba(255, 255, 255, .75);
-    border-left: 0;
+    border-left-width: 0;
     font-family: var(--font);
     font-size: 40px;
     padding: 10px 20px;
@@ -204,6 +206,7 @@ button svg {
     overflow: hidden;
 }
 
+.wallet__btn-text,
 .games__btn-text {
     width: 60%;
 }
@@ -216,7 +219,7 @@ button svg {
 }
 
 .games__btn-cards img {
-    width: 120px;
+    width: 160px;
     position: absolute;
     right: 0;
     top: 0;
@@ -225,48 +228,48 @@ button svg {
 }
 
 .games__btn-cards--poker img:nth-child(1) {
-    right: 100px;
+    right: 120px;
     top: -15px;
     transform: rotate(-20deg)
 }
 .games__btn-cards--poker img:nth-child(2) {
-    right: 80px;
+    right: 100px;
     top: -15px;
     transform: rotate(-10deg)
 }
 .games__btn-cards--poker img:nth-child(3) {
-    right: 60px;
+    right: 80px;
     top: -10px;
 }
 .games__btn-cards--poker img:nth-child(4) {
-    right: 40px;
+    right: 60px;
     top: -5px;
     transform: rotate(10deg)
 }
 .games__btn-cards--poker img:nth-child(5) {
-    right: 20px;
+    right: 40px;
     top: 0px;
     transform: rotate(20deg)
 }
 
 .games__btn-cards--blackjack img:nth-child(1) {
-    right: 80px;
+    right: 100px;
     top: -15px;
     transform: rotate(-10deg)
 }
 .games__btn-cards--blackjack img:nth-child(2) {
-    right: 60px;
+    right: 80px;
     top: -5px;
     transform: rotate(10deg)
 }
 
 .games__btn-cards--war img:nth-child(1) {
-    right: 60px;
+    right: 80px;
     top: -60px;
     transform: rotate(-10deg)
 }
 .games__btn-cards--war img:nth-child(2) {
-    right: 70px;
+    right: 90px;
     top: 10px;
     transform: rotate(-10deg)
 }
@@ -274,15 +277,84 @@ button svg {
 .games__btn-cards--pokemon img:nth-child(1),
 .games__btn-cards--mtg img:nth-child(1) {
     right: 80px;
-    top: -15px;
+    top: -30px;
     transform: rotate(-10deg)
 }
 .games__btn-cards--pokemon img:nth-child(2),
 .games__btn-cards--mtg img:nth-child(2) {
     right: 60px;
-    top: -5px;
+    top: -20px;
     transform: rotate(10deg)
 }
+
+.wallet__btn {
+    margin: 0 0 0 auto;
+    border-radius: 10px 0 0 10px;
+    border-left-width: 3px;
+    border-right-width: 0;
+    flex-direction: row-reverse;
+}
+
+.wallet__btn-text {
+    text-align: right;
+    width: 70%
+}
+
+.wallet__btn-sub {
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.wallet__btn-cards {
+    position: relative;
+}
+
+.wallet__btn-cards img {
+    border-radius: 15px;
+    height: 120px;
+    position: absolute;
+    right: -75px;
+    top: -15px;
+    box-shadow: 0 0 10px var(--black);
+    border-radius: 5px;
+    transform: rotate(45deg)
+}
+
+.debit {
+    position: relative;
+    width: 720px;
+    height: 0;
+}
+
+.debit__card {
+    position: absolute;
+    top: 0;
+    left: 720px;
+    transform: rotate(90deg);
+    transform-origin: 0 0 ;
+}
+
+.debit__card img {
+    z-index: 10;
+    width: 1280px;
+    height: 720px;
+}
+
+.debit__card img:last-child {
+    display: none;
+}
+
+.debit__card.flip img:first-child {
+    display: none;
+}
+
+.debit__card.flip img:last-child {
+    display: block;
+}
+
+
+
 
 .card {
     position: relative;
@@ -321,7 +393,7 @@ button svg {
 
 .nav {
     position: absolute;
-    bottom: 40px;
+    bottom: 60px;
     left: 0;
     width: 100%;
     display: flex;
@@ -333,6 +405,7 @@ button svg {
     display: none;
 }
 
+.drawer__btn,
 .nav__btn {
     display: flex;
     align-items: center;
@@ -342,23 +415,222 @@ button svg {
     font-family: var(--font);
     font-size: 40px;
     padding: 10px 20px;
-    background: rgba(255, 255, 255, .25);
+    background: rgba(255, 255, 255, .4);
     color: var(--white);
-    border: 3px solid rgba(255, 255, 255, .75);
+    border: 3px solid rgba(255, 255, 255, .6);
     box-shadow: 3px 3px 5px var(--black);
-    grid-gap: 10px;
+    grid-gap: 20px;
 }
 
-.nav__btn--prev {
+.drawer__btn {
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+.nav__btn--left {
     border-left: 0;
     border-radius: 0 10px 10px 0;
 }
 
-.nav__btn--next {
+.drawer__btn,
+.nav__btn--right {
     border-right: 0;
     border-radius: 10px 0 0 10px;
 }
 
+.drawer__btn-icon svg,
 .nav__btn-icon svg {
     width: 60px;
 }
+
+.drawer {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 300px;
+}
+
+.drawer ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-gap: 60px;
+}
+
+.pattern,
+.login {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    color: var(--white);
+}
+
+.login__lbl {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    padding: 0 0 60px;
+}
+
+.login__guest,
+.login__input {
+    background: rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, .4);
+    box-shadow: 3px 3px 5px var(--black);
+    height: 120px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    color: var(--white);
+    font-size: 50px;
+    font-weight: 500;
+    font-family: var(--font);
+    padding: 20px 80px 20px 20px;
+    outline: 0;
+}
+
+.login__guest {
+    height: auto;
+    font-size: 40px;
+    font-weight: 300;
+    padding: 10px 20px;
+    width: auto;
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.login__btn {
+    position: absolute;
+    right: 15px;
+    top: 120px;
+    background: 0;
+    border: 0;
+    outline: 0;
+    color: var(--white);
+    padding: 0;
+}
+
+.login__btn svg {
+    width: 80px;
+    height: 80px;
+}
+
+.login__keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    padding-top: 60px;
+}
+
+.login__key {
+    background: rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, .4);
+    box-shadow: 3px 3px 5px var(--black);
+    font-size: 50px;
+    font-weight: 500;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.login__key:last-child {
+    grid-column-start: 2;
+}
+
+.pattern {
+    color: var(--white);
+    width: 80%;
+}
+
+.pattern__pattern {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 140px 120px;
+}
+
+.pattern__dot {
+    width: 40px;
+    height: 40px;
+    background: var(--white);
+    box-shadow: 3px 3px 5px var(--black);
+    border-radius: 50%;
+}
+
+.pattern .login__guest {
+    bottom: -164px;
+}
+
+.view {
+    display: none;
+}
+
+.view-login .login,
+.view-pattern .pattern,
+.view-drawer .drawer,
+.view-menu .menu,
+.view-games .games,
+.view-wallet .wallet,
+.view-debit .debit {
+    display: block;
+}
+
+.view-drawer .view:not(.drawer),
+.view-drawer .title,
+.view-drawer .nav {
+    display: none;
+}
+
+.view-login .nav,
+.view-pattern .nav {
+    display: none;
+}
+
+.view-master:not(.view-menu) .nav__btn--help,
+.view-master:not(.view-menu) .nav__btn--logout,
+.view-menu .nav__btn--back,
+.view-menu .nav__btn--menu {
+    display: none;
+}
+
+.view-master:not(.view-menu) .nav__btn--back,
+.view-master:not(.view-menu) .nav__btn--menu {
+    display: block;
+}
+
+.view-menu .title {
+    text-align: center;
+    line-height: 1.25;
+}
+
+.view-games .title {
+    top: 40px;
+    justify-content: flex-start;
+}
+
+.view-wallet .title {
+    top: 40px;
+    justify-content: flex-end;
+}
+
+.view-debit .title {
+    justify-content: center;
+    top: auto;
+    bottom: 80px;
+    font-size: 50px;
+}
+
+.view-debit .container {
+    background: var(--black);
+}
+

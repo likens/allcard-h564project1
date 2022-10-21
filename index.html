@@ -10,35 +10,71 @@
         <link href="styles.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="view-master view-menu">
         <div class="master">
             <div class="container">
-                <div class="title" id="title">Welcome to AllCard</div>
+                <div class="title" id="title">Good Afternoon, <br/> John Smith</div>
 
-                <!-- <div class="login">
-                    <label>Phone Number</label>
-                    <input />
-                    <button>
+                <div class="view login" id="login">
+                    <label class="login__lbl">Phone Number</label>
+                    <input class="login__input" />
+                    <button class="login__btn" onclick="goToPattern()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Arrow Forward</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"/></svg>
                     </button>
-                </div> -->
+                    <div class="login__keypad">
+                        <div class="login__key">1</div>
+                        <div class="login__key">2</div>
+                        <div class="login__key">3</div>
+                        <div class="login__key">4</div>
+                        <div class="login__key">5</div>
+                        <div class="login__key">6</div>
+                        <div class="login__key">7</div>
+                        <div class="login__key">8</div>
+                        <div class="login__key">9</div>
+                        <div class="login__key">0</div>
+                    </div>
+                    <button class="login__guest" onclick="goToMenu()">Skip Login</button>
+                </div>
 
-                <div class="menu" id="menu">
+                <div class="view pattern" id="pattern">
+                    <label class="login__lbl">Draw Your Pattern</label>
+                    <div class="pattern__pattern">
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                        <div class="pattern__dot"></div>
+                    </div>
+                    <button class="login__guest" onclick="goToMenu()">Skip Login</button>
+                </div>
+
+                <div class="view menu" id="menu">
                     <ul>
                         <li>
                             <button class="menu__btn" onclick="goToGames()">
                                 <span class="menu__btn-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Dice</title><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 341.37V170.61A32 32 0 00432.11 143l-152-88.46a47.94 47.94 0 00-48.24 0L79.89 143A32 32 0 0064 170.61v170.76A32 32 0 0079.89 369l152 88.46a48 48 0 0048.24 0l152-88.46A32 32 0 00448 341.37z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M69 153.99l187 110 187-110M256 463.99v-200"/><ellipse cx="256" cy="152" rx="24" ry="16"/><ellipse cx="208" cy="296" rx="16" ry="24"/><ellipse cx="112" cy="328" rx="16" ry="24"/><ellipse cx="304" cy="296" rx="16" ry="24"/><ellipse cx="400" cy="240" rx="16" ry="24"/><ellipse cx="304" cy="384" rx="16" ry="24"/><ellipse cx="400" cy="328" rx="16" ry="24"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Dice</title><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 341.37V170.61A32 32 0 00432.11 143l-152-88.46a47.94 47.94 0 00-48.24 0L79.89 143A32 32 0 0064 170.61v170.76A32 32 0 0079.89 369l152 88.46a48 48 0 0048.24 0l152-88.46A32 32 0 00448 341.37z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M69 153.99l187 110 187-110M256 463.99v-200"/><ellipse cx="256" cy="152" rx="24" ry="16"/><ellipse cx="208" cy="296" rx="16" ry="24"/><ellipse cx="112" cy="328" rx="16" ry="24"/><ellipse cx="304" cy="296" rx="16" ry="24"/><ellipse cx="400" cy="240" rx="16" ry="24"/><ellipse cx="304" cy="384" rx="16" ry="24"/><ellipse cx="400" cy="328" rx="16" ry="24"/></svg>
                                 </span>
-                                <span class="menu__btn-text">Play</span>
+                                <span class="menu__btn-text">Games</span>
                             </button>
                         </li>
                         <li>
-                            <button class="menu__btn">
+                            <button class="menu__btn" onclick="goToWallet()">
                                 <span class="menu__btn-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Wallet</title><rect x="48" y="144" width="416" height="288" rx="48" ry="48" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Wallet</title><rect x="48" y="144" width="416" height="288" rx="48" ry="48" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z"/></svg>
                                 </span>
-                                <span class="menu__btn-text">Pay</span>
+                                <span class="menu__btn-text">Wallet</span>
                             </button>
                         </li>
                         <li>
@@ -50,34 +86,34 @@
                                 <span class="menu__btn-text">Cards</span>
                             </button>
                         </li>
-                        <li>
+                        <!-- <li>
                             <button class="menu__btn">
                                 <span class="menu__btn-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Storefront</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 448V240M64 240v208M382.47 48H129.53c-21.79 0-41.47 12-49.93 30.46L36.3 173c-14.58 31.81 9.63 67.85 47.19 69h2c31.4 0 56.85-25.18 56.85-52.23 0 27 25.46 52.23 56.86 52.23s56.8-23.38 56.8-52.23c0 27 25.45 52.23 56.85 52.23s56.86-23.38 56.86-52.23c0 28.85 25.45 52.23 56.85 52.23h1.95c37.56-1.17 61.77-37.21 47.19-69l-43.3-94.54C423.94 60 404.26 48 382.47 48zM32 464h448M136 288h80a24 24 0 0124 24v88h0-128 0v-88a24 24 0 0124-24zM288 464V312a24 24 0 0124-24h64a24 24 0 0124 24v152"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Storefront</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 448V240M64 240v208M382.47 48H129.53c-21.79 0-41.47 12-49.93 30.46L36.3 173c-14.58 31.81 9.63 67.85 47.19 69h2c31.4 0 56.85-25.18 56.85-52.23 0 27 25.46 52.23 56.86 52.23s56.8-23.38 56.8-52.23c0 27 25.45 52.23 56.85 52.23s56.86-23.38 56.86-52.23c0 28.85 25.45 52.23 56.85 52.23h1.95c37.56-1.17 61.77-37.21 47.19-69l-43.3-94.54C423.94 60 404.26 48 382.47 48zM32 464h448M136 288h80a24 24 0 0124 24v88h0-128 0v-88a24 24 0 0124-24zM288 464V312a24 24 0 0124-24h64a24 24 0 0124 24v152"/></svg>
                                 </span>
                                 <span class="menu__btn-text">Store</span>
                             </button>
-                        </li>
+                        </li> -->
                         <li>
                             <button class="menu__btn">
                                 <span class="menu__btn-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Settings</title><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Settings</title><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                                 </span>
                                 <span class="menu__btn-text">Settings</span>
                             </button>
                         </li>
-                        <li>
+                        <!-- <li>
                             <button class="menu__btn">
                                 <span class="menu__btn-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Log Out</title><path d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
                                 </span>
                                 <span class="menu__btn-text">Log Out</span>
                             </button>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 
-                <div class="games hide" id="games">
+                <div class="view games" id="games">
                     <ul>
                         <li>
                             <button class="games__btn">
@@ -101,7 +137,7 @@
                             </button>
                         </li>
                         <li>
-                            <button class="games__btn">
+                            <button class="games__btn" onclick="goToWar()">
                                 <div class="games__btn-text">War</div>
                                 <div class="games__btn-cards games__btn-cards--war">
                                     <img src="img/CLUB-5.svg" />
@@ -130,6 +166,111 @@
                     </ul>
                 </div>
 
+                <div class="view wallet" id="wallet">
+                    <ul>
+                        <li>
+                            <button class="wallet__btn">
+                                <div class="wallet__btn-text">Discover <br/><span class="wallet__btn-sub">**** 5678</span></div>
+                                <div class="wallet__btn-cards">
+                                    <img src="img/card-discover.png" />
+                                </div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="wallet__btn" onclick="goToDebit()">
+                                <div class="wallet__btn-text">Federal Credit Union <br/><span class="wallet__btn-sub">**** 1234</span></div>
+                                <div class="wallet__btn-cards">
+                                    <img src="img/card-front.png" />
+                                    
+                                </div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="wallet__btn">
+                                <div class="wallet__btn-text">Starbucks<br/>Rewards</div>
+                                <div class="wallet__btn-cards">
+                                    <img src="img/card-sb.png" />
+                                </div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="wallet__btn">
+                                <div class="wallet__btn-text">Best Buy Gift Card<br /><span class="wallet__btn-sub">Your Balance: $23.56</span></div>
+                                <div class="wallet__btn-cards">
+                                    <img src="img/card-bb.png" />
+                                </div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="wallet__btn">
+                                <div class="wallet__btn-text">Planet Fitness</div>
+                                <div class="wallet__btn-cards">
+                                    <img src="img/card-pf.png" />
+                                </div>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="view debit" id="debit">
+                    <div class="debit__card" onclick="flipCard(this)">
+                        <img src="img/card-front.png" />
+                        <img src="img/card-back.png" />
+                    </div>
+                </div>
+
+                <div class="view drawer" id="drawer">
+                    <ul>
+                        <li>
+                            <button class="drawer__btn" onclick="goToLogin()">
+                                <span class="drawer__btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Log Out</title><path d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                </span>
+                                <span class="drawer__btn-text">Log Out</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="drawer__btn">
+                                <span class="drawer__btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Settings</title><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                </span>
+                                <span class="drawer__btn-text">Settings</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="drawer__btn">
+                                <span class="drawer__btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Journal</title><rect x="96" y="48" width="320" height="416" rx="48" ry="48" fill="rgba(255, 255, 255, .25)" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="60" d="M320 48v416"/></svg>
+                                </span>
+                                <span class="menu__btn-text">Cards</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="drawer__btn" onclick="goToWallet()">
+                                <span class="drawer__btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Wallet</title><rect x="48" y="144" width="416" height="288" rx="48" ry="48" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z"/></svg>
+                                </span>
+                                <span class="drawer__btn-text">Wallet</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="drawer__btn" onclick="goToGames()">
+                                <span class="drawer__btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Dice</title><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 341.37V170.61A32 32 0 00432.11 143l-152-88.46a47.94 47.94 0 00-48.24 0L79.89 143A32 32 0 0064 170.61v170.76A32 32 0 0079.89 369l152 88.46a48 48 0 0048.24 0l152-88.46A32 32 0 00448 341.37z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M69 153.99l187 110 187-110M256 463.99v-200"/><ellipse cx="256" cy="152" rx="24" ry="16"/><ellipse cx="208" cy="296" rx="16" ry="24"/><ellipse cx="112" cy="328" rx="16" ry="24"/><ellipse cx="304" cy="296" rx="16" ry="24"/><ellipse cx="400" cy="240" rx="16" ry="24"/><ellipse cx="304" cy="384" rx="16" ry="24"/><ellipse cx="400" cy="328" rx="16" ry="24"/></svg>
+                                </span>
+                                <span class="drawer__btn-text">Games</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="drawer__btn" style="width: auto;margin-left: auto;" onclick="leaveDrawer()">
+                                <span class="drawer__btn-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Close</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></svg>
+                                </span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
                 <!-- <div class="card">
                     <button class="card__btn">
                         <span class="card__btn-icon">
@@ -146,42 +287,91 @@
                     </button>
                 </div> -->
 
-                <div class="nav nav--hide" id="nav">
-                    <button class="nav__btn nav__btn--prev" onclick="goToMenu()">
+                <div class="nav" id="nav">
+                    <button class="nav__btn nav__btn--back nav__btn--left" onclick="goBack()">
                         <span class="nav__btn-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Arrow Back</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M244 400L100 256l144-144M120 256h292"/></svg>
                         </span>
-                        <span class="nav__btn-text">Back</span>
+                        <!-- <span class="nav__btn-text">Back</span> -->
                     </button>
-                    <button class="nav__btn nav__btn--next">
+                    <button class="nav__btn nav__btn--help nav__btn--left">
+                        <span class="nav__btn-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Help</title><path d="M160 164s1.44-33 33.54-59.46C212.6 88.83 235.49 84.28 256 84c18.73-.23 35.47 2.94 45.48 7.82C318.59 100.2 352 120.6 352 164c0 45.67-29.18 66.37-62.35 89.18S248 298.36 248 324" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="40"/><circle fill="currentColor" cx="248" cy="399.99" r="32"/></svg>
+                        </span>
+                        <!-- <span class="nav__btn-text">Menu</span> -->
+                    </button>
+                    <button class="nav__btn nav__btn--menu nav__btn--right" onclick="goToDrawer()">
                         <span class="nav__btn-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Menu</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/></svg>
                         </span>
-                        <span class="nav__btn-text">Menu</span>
+                        <!-- <span class="nav__btn-text">Menu</span> -->
+                    </button>
+                    <button class="nav__btn nav__btn--logout nav__btn--right" onclick="goToLogin()">
+                        <span class="nav__btn-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Log Out</title><path d="M304 336v40a40 40 0 01-40 40H104a40 40 0 01-40-40V136a40 40 0 0140-40h152c22.09 0 48 17.91 48 40v40M368 336l80-80-80-80M176 256h256" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                        </span>
+                        <!-- <span class="nav__btn-text">Logout</span> -->
                     </button>
                 </div>
-
             </div>
         </div>
 
         <script>
 
+            // "state" lol
+            function updateView(view, title) {
+                if (view !== "drawer") {
+                    document.getElementById("title").innerText = title;
+                    document.body.classList.remove(...document.body.classList);
+                }
+                document.body.classList.add("view-master", `view-${view}`);
+            }
+
+            function goBack() {
+                const view = [...document.body.classList][1];
+                console.log(view);
+                if (view.includes("games")) 
+                    goToMenu();
+                else if (view.includes("wallet"))
+                    goToMenu();
+                else if (view.includes("debit"))
+                    goToWallet();
+            }
+
+            function goToLogin() {
+                updateView("login", "Login To AllCard");
+            }
+
+            function goToPattern() {
+                updateView("pattern", "Login To AllCard")
+            }
+
+            function goToDrawer() {
+                updateView("drawer", "");
+            }
+
+            function leaveDrawer() {
+                document.body.classList.remove("view-drawer");
+            }
+
             function goToMenu() {
-                const titleEl = document.getElementById("title");
-                titleEl.innerText = "Welcome to AllCard";
-                titleEl.classList.toggle("title--games");
-                document.getElementById("menu").classList.toggle("hide");
-                document.getElementById("games").classList.toggle("hide");
-                document.getElementById("nav").classList.add("nav--hide");
+                updateView("menu", "Good Afternoon, \n John Smith");
             }
 
             function goToGames() {
-                const titleEl = document.getElementById("title");
-                titleEl.innerText = "Your Games";
-                titleEl.classList.toggle("title--games");
-                document.getElementById("menu").classList.toggle("hide");
-                document.getElementById("games").classList.toggle("hide");
-                document.getElementById("nav").classList.remove("nav--hide");
+                updateView("games", "Your Games");
+            }
+
+            function goToWallet() {
+                updateView("wallet", "Your Wallet");
+            }
+
+            function goToDebit() {
+                updateView("debit", "Federal Credit Union");
+            }
+
+            function flipCard(e) {
+                e.classList.toggle("flip");
             }
 
         </script>
