@@ -137,7 +137,7 @@
                             </button>
                         </li>
                         <li>
-                            <button class="games__btn" onclick="goToWar()">
+                            <button class="games__btn" onclick="goToDetect()">
                                 <div class="games__btn-text">War</div>
                                 <div class="games__btn-cards games__btn-cards--war">
                                     <img src="img/CLUB-5.svg" />
@@ -180,7 +180,7 @@
                             <button class="wallet__btn" onclick="goToDebit()">
                                 <div class="wallet__btn-text">Federal Credit Union <br/><span class="wallet__btn-sub">**** 1234</span></div>
                                 <div class="wallet__btn-cards">
-                                    <img src="img/card-front.png" />
+                                    <img src="img/debit-front.png" />
                                     
                                 </div>
                             </button>
@@ -214,8 +214,8 @@
 
                 <div class="view debit" id="debit">
                     <div class="debit__card" onclick="flipCard(this)">
-                        <img src="img/card-front.png" />
-                        <img src="img/card-back.png" />
+                        <img src="img/debit-front.png" />
+                        <img src="img/debit-back.png" />
                     </div>
                 </div>
 
@@ -270,6 +270,53 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="view detect" id="detect">
+                </div>
+
+                <div class="view warmenu" id="warmenu">
+                    <ul>
+                        <li>
+                            <button class="warmenu__btn" onclick="goToWarGame()">
+                                <div class="warmenu__btn-text">Start Game</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="warmenu__btn">
+                                <div class="warmenu__btn-text">How To Play</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="warmenu__btn">
+                                <div class="warmenu__btn-text">Edit Players<br /><span class="warmenu__btn-sub">(2 humans, 0 computers)</span></div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="warmenu__btn">
+                                <div class="warmenu__btn-text">Edit Game Options</div>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="warmenu__btn">
+                                <div class="warmenu__btn-text">Edit Your Deck</div>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="view wargame" id="wargame">
+                    <div class="wargame__card" onclick="flipCard(this)">
+                        <img src="img/war-back1.png" />
+                        <img src="img/war-front1.png" />
+                    </div>
+                </div>
+
+                <!-- <div class="view card" id="card">
+                    <div class="card__card" onclick="flipCard(this)">
+                        <img src="img/card-front.png" id="cardFront" />
+                        <img src="img/card-back.png" id="cardBack" />
+                    </div>
+                </div> -->
 
                 <!-- <div class="card">
                     <button class="card__btn">
@@ -336,6 +383,8 @@
                     goToMenu();
                 else if (view.includes("debit"))
                     goToWallet();
+                else if (view.includes("warmenu"))
+                    goToGames();
             }
 
             function goToLogin() {
@@ -368,6 +417,19 @@
 
             function goToDebit() {
                 updateView("debit", "Federal Credit Union");
+            }
+
+            function goToDetect() {
+                updateView("detect", "Detecting other\n cards nearby...");
+                setTimeout(() => goToWarMenu(), 3000);
+            }
+
+            function goToWarMenu() {
+                updateView("warmenu", "War")
+            }
+
+            function goToWarGame() {
+                updateView("wargame", "16 Cards Remaining")
             }
 
             function flipCard(e) {

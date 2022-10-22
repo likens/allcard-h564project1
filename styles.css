@@ -169,14 +169,16 @@ button svg {
 }
 
 .games,
-.wallet {
+.wallet,
+.warmenu {
     width: 100%;
     position: absolute;
     top: 150px;
 }
 
 .games ul,
-.wallet ul {
+.wallet ul,
+.warmenu ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -185,7 +187,8 @@ button svg {
 }
 
 .wallet__btn,
-.games__btn {
+.games__btn,
+.warmenu__btn {
     display: flex;
     width: 80%;
     margin-right: auto;
@@ -206,9 +209,18 @@ button svg {
     overflow: hidden;
 }
 
+.warmenu__btn {
+    height: 120px;
+    font-size: 50px;
+}
+
 .wallet__btn-text,
 .games__btn-text {
     width: 60%;
+}
+
+.warmenu__btn-text {
+    width: 100%;
 }
 
 .games__btn-cards {
@@ -300,6 +312,7 @@ button svg {
     width: 70%
 }
 
+.warmenu__btn-sub,
 .wallet__btn-sub {
     display: inline-block;
     font-size: 30px;
@@ -571,6 +584,36 @@ button svg {
     bottom: -164px;
 }
 
+.wargame {
+    position: relative;
+    width: 720px;
+    height: 0;
+}
+
+.wargame__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wargame__card img {
+    z-index: 10;
+    width: 720px;
+    height: 1100px;
+}
+
+.wargame__card img:last-child {
+    display: none;
+}
+
+.wargame__card.flip img:first-child {
+    display: none;
+}
+
+.wargame__card.flip img:last-child {
+    display: block;
+}
+
 .view {
     display: none;
 }
@@ -581,7 +624,10 @@ button svg {
 .view-menu .menu,
 .view-games .games,
 .view-wallet .wallet,
-.view-debit .debit {
+.view-debit .debit,
+.view-detect .detect,
+.view-warmenu .warmenu,
+.view-wargame .wargame {
     display: block;
 }
 
@@ -592,7 +638,8 @@ button svg {
 }
 
 .view-login .nav,
-.view-pattern .nav {
+.view-pattern .nav,
+.view-detect .nav {
     display: none;
 }
 
@@ -623,7 +670,8 @@ button svg {
     justify-content: flex-end;
 }
 
-.view-debit .title {
+.view-debit .title,
+.view-wargame .title {
     justify-content: center;
     top: auto;
     bottom: 80px;
@@ -634,3 +682,13 @@ button svg {
     background: var(--black);
 }
 
+.view-detect .title {
+    justify-content: center;
+    text-align: center;
+    top: 180px;
+}
+
+.view-warmenu .title {
+    top: 40px;
+    justify-content: flex-start;
+}
